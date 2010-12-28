@@ -1,0 +1,39 @@
+Google Python 风格指南 - 中文版
+================================
+:版本 2.19
+
+:原作者:
+    .. line-block::
+
+        Amit Patel
+        Antoine Picard
+        Eugene Jhong
+        Jeremy Hylton
+        Matt Smart
+        Mike Shields
+        
+:翻译:
+    .. line-block::
+    
+        guoqiao
+        
+:项目主页:
+    - `Google Style Guide <http://google-styleguide.googlecode.com>`_
+    - `Google 开源项目风格指南 - 中文版
+    
+目录
+-----------
+
+.. contents::
+    :backlinks: none
+    
+.. toctree::
+
+        python_language_rules
+        python_style_rules
+        parting_words
+        
+背景
+--------       
+
+Python是Google使用的主要脚本语言. 本风格向导列举了一系列你在Python程序中应该做和不应该的事. 为了帮助你正确的格式化代码, 我们已经创建了一个用于vim的设置文件. 对于Emacs, 默认的设置就行了.
