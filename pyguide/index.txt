@@ -1,8 +1,9 @@
-Google Python ·ç¸ñÖ¸ÄÏ - ÖĞÎÄ°æ
+Google Python é£æ ¼æŒ‡å— - ä¸­æ–‡ç‰ˆ
 ================================
-:°æ±¾ 2.19
 
-:Ô­×÷Õß:
+:ç‰ˆæœ¬: 2.19
+
+:åŸä½œè€…:
     .. line-block::
 
         Amit Patel
@@ -12,28 +13,22 @@ Google Python ·ç¸ñÖ¸ÄÏ - ÖĞÎÄ°æ
         Matt Smart
         Mike Shields
         
-:·­Òë:
+:ç¿»è¯‘:
     .. line-block::
     
-        guoqiao
+        éƒ­æ¡¥ <guoqiao@gmail.com>
         
-:ÏîÄ¿Ö÷Ò³:
+:é¡¹ç›®ä¸»é¡µ:
     - `Google Style Guide <http://google-styleguide.googlecode.com>`_
-    - `Google ¿ªÔ´ÏîÄ¿·ç¸ñÖ¸ÄÏ - ÖĞÎÄ°æ
     
-Ä¿Â¼
+    - `Google å¼€æºé¡¹ç›®é£æ ¼æŒ‡å— - ä¸­æ–‡ç‰ˆ <http://code.google.com/p/zh-google-styleguide/>`_
+    
+ç›®å½•
 -----------
 
-.. contents::
-    :backlinks: none
-    
 .. toctree::
 
+        background
         python_language_rules
         python_style_rules
         parting_words
-        
-±³¾°
---------       
-
-PythonÊÇGoogleÊ¹ÓÃµÄÖ÷Òª½Å±¾ÓïÑÔ. ±¾·ç¸ñÏòµ¼ÁĞ¾ÙÁËÒ»ÏµÁĞÄãÔÚPython³ÌĞòÖĞÓ¦¸Ã×öºÍ²»Ó¦¸ÃµÄÊÂ. ÎªÁË°ïÖúÄãÕıÈ·µÄ¸ñÊ½»¯´úÂë, ÎÒÃÇÒÑ¾­´´½¨ÁËÒ»¸öÓÃÓÚvimµÄÉèÖÃÎÄ¼ş. ¶ÔÓÚEmacs, Ä¬ÈÏµÄÉèÖÃ¾ÍĞĞÁË.
