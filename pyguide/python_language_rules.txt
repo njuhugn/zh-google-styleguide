@@ -578,7 +578,7 @@ True/False的求值
     避免使用这些特性    
     
 定义:
-    Python是一种异常灵活的语言, 它为你提供了很多花哨的特性, 诸如原类(metaclasses), 字节码访问, 任意编译(on-the-fly compilation), 动态继承, 对象父类重定义(object reparenting), 导入黑客(import hacks), 反射, 系统内修改(modification of system internals), 等待.
+    Python是一种异常灵活的语言, 它为你提供了很多花哨的特性, 诸如原类(metaclasses), 字节码访问, 任意编译(on-the-fly compilation), 动态继承, 对象父类重定义(object reparenting), 导入黑客(import hacks), 反射, 系统内修改(modification of system internals), 等等.
     
 优点:
     威力巨大的语言特性, 能让你的代码更紧凑.
