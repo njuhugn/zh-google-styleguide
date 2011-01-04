@@ -5,84 +5,211 @@ Python风格规范
 ~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
-    不要在行尾加分号, 也不要用分号将两条命令放在同一行.
+    不要在行尾加分号, 也不要用分号将两条命令放在同一行.   
 
-定义:
-
-优点:
-
-缺点:
-
-结论:
-    
+.. _line_length:    
     
 行长度
 ~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
     每行不超过80个字符    
+   
+例外: 如果使用Python 2.4或更早的版本, 导入模块的行可能多于80个字符. 
 
+Python会将圆括号, 中括号和花括号中的行隐式的连接起来, 利用好这一点. 如果需要, 你可以在表达式外围增加一对额外的圆括号. 
+
+.. code-block:: python
+
+    Yes: foo_bar(self, width, height, color='black', design=None, x='foo',
+                 emphasis=None, highlight=0)
+
+         if (width == 0 and height == 0 and
+             color == 'red' and emphasis == 'strong'):    
+
+如果一个文本字符串在一行放不下, 使用圆括号来实现隐式行连接.
+
+.. code-block:: python
+
+    x = ('This will build a very long long '
+         'long long long long long long string')
+     
+注意上面例子中的元素缩进; 你可以在本文的 :ref:`缩进 <indentation>` 部分找到解释. 
     
-定义:
-
-优点:
-
-缺点:
-
-结论:
-    
-    
-括号
+圆括号
 ~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
-    少用括号    
+    保守的使用括号    
 
-定义:
-
-优点:
-
-缺点:
-
-结论:
+除非是用于实现行连接, 否则不要在返回语句或条件语句中使用括号. 不过在元组两边使用圆括号是可以的. 
     
+.. code-block:: python    
+  
+    Yes: if foo:
+             bar()
+         while x:
+             x = bar()
+         if x and y:
+             bar()
+         if not x:
+             bar()
+         return foo
+         for (x, y) in dict.items(): ...  
+
+.. code-block:: python
+       
+    No:  if (x):
+             bar()
+         if not(x):
+             bar()
+         return (foo)
+
+.. _indentation:  
+         
+缩进
+~~~~~~~~~~~~~~~~~~~~
+
+.. tip::
+    用4个空格来缩进代码
     
+绝对不要用tab, 也不要tab和空格混用. 对于行连接的情况, 你应该要么垂直对齐换行的元素(见 :ref:`行长度 <line_length>` 部分的示例), 或者使用4空格的悬挂缩进(这时第一行不应该有参数)   
+         
+.. code-block:: python
+
+    Yes:   # Aligned with opening delimiter
+           foo = long_function_name(var_one, var_two,
+                                    var_three, var_four)
+
+           # 4-space hanging indent; nothing on first line
+           foo = long_function_name(
+               var_one, var_two, var_three,
+               var_four)
+           
+.. code-block:: python
+
+    No:    # Stuff on first line forbidden
+           foo = long_function_name(var_one, var_two,
+               var_three, var_four)
+
+           # 2-space hanging indent forbidden
+           foo = long_function_name(
+             var_one, var_two, var_three,
+             var_four)
+         
 空行
 ~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
     顶级定义之间空两行, 方法定义之间空一行
-
-定义:
-
-优点:
-
-缺点:
-
-结论:
     
-    
+顶级定义之间空两行, 比如函数或者类定义.  方法定义, 类定义与第一个方法之间, 都应该空一行. 函数或方法中, 某些地方要是你觉得合适, 就空一行.     
+      
 空格
 ~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
     按照标准的排版规范来使用标点周围的空格
 
-定义:
+括号内不要有空格.
 
-优点:
+.. code-block:: python
 
-缺点:
+    Yes: spam(ham[1], {eggs: 2}, [])
 
-结论:
+.. code-block:: python
+
+    No:  spam( ham[ 1 ], { eggs: 2 }, [ ] )
     
+不要在逗号, 分号, 冒号前面加空格, 但应该在它们后面加(除了在行尾).
+
+.. code-block:: python
+
+    Yes: if x == 4:
+             print x, y
+         x, y = y, x
+     
+.. code-block:: python
     
+    No:  if x == 4 :
+             print x , y
+         x , y = y , x
+
+参数列表, 索引或切片的左括号前不应加空格.
+         
+.. code-block:: python   
+
+    Yes: spam(1)
+    
+.. code-block:: python
+         
+    Yes: spam (1)
+    
+.. code-block:: python  
+
+    Yes: dict['key'] = list[index]
+    
+.. code-block:: python  
+
+    No:  dict ['key'] = list [index]       
+
+在二元操作符两边都加上一个空格, 比如赋值(=), 比较(==, <, >, !=, <>, <=, >=, in, not in, is, is not), 布尔(and, or, not).  对于算术操作符两边的空格该如何使用, 需要你自己好好判断. 不过两侧务必要保持一致. 
+
+.. code-block:: python
+
+    Yes: x == 1
+
+.. code-block:: python
+    
+    No:  x<1
+
+当'='用于指示关键字参数或默认参数值时, 不要在其两侧使用空格. 
+
+.. code-block:: python
+
+    Yes: def complex(real, imag=0.0): return magic(r=real, i=imag)
+    
+.. code-block:: python
+    
+    No:  def complex(real, imag = 0.0): return magic(r = real, i = imag)
+    
+不要用空格来垂直对齐多行间的标记, 因为这会成为维护的负担(适用于:, #, =, 等等):
+
+.. code-block:: python
+
+    Yes:
+      foo = 1000  # comment
+      long_name = 2  # comment that should not be aligned
+
+      dictionary = {
+          "foo": 1,
+          "long_name": 2,
+          }
+      
+.. code-block:: python
+
+    No:
+      foo       = 1000  # comment
+      long_name = 2     # comment that should not be aligned
+
+      dictionary = {
+          "foo"      : 1,
+          "long_name": 2,
+          }
+          
 Python解释器
 ~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
     每个模块都应该以#!/usr/bin/env python<version>开头
 
+模块应该以一个构造行开始, 以指定执行这个程序用到的Python解释器:
+
+.. code-block:: python
+
+    #!/usr/bin/env python2.4
+    
+总是使用最特化的版本, 例如, 使用/usr/bin/python2.4, 而不是 /usr/bin/python2. 这样, 当升级到不同的Python版本时, 能轻松找到依赖关系, 同时也避免了使用时的迷惑. 例如, /usr/bin/python2是表示/usr/bin/python2.0.1还是/usr/bin/python2.3.0?
 定义:
 
 优点:
