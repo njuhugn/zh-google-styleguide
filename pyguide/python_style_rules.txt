@@ -509,34 +509,36 @@ TODO注释应该在所有开头处包含"TODO"字符串, 紧跟着是用括号�
 
 **从Guido的推荐中衍生的规范**    
 
-===========================     ====================     ======================================================================
- Type                             Public                    Internal
-===========================     ====================     ======================================================================
- Modules                         lower_with_under          _lower_with_under
- Packages                        lower_with_under               
- Classes                         CapWords                  _CapWords
- Exceptions                      CapWords                           
- Functions                       lower_with_under()        _lower_with_under()
- Global/Class Constants          CAPS_WITH_UNDER           _CAPS_WITH_UNDER
- Global/Class Variables          lower_with_under          _lower_with_under
- Instance Variables              lower_with_under          _lower_with_under (protected) or __lower_with_under (private)
- Method Names                    lower_with_under()        _lower_with_under() (protected) or __lower_with_under() (private)
- Function/Method Parameters      lower_with_under                       
- Local Variables                 lower_with_under                             
-===========================     ====================     ======================================================================
+===========================    ====================    ======================================================================
+Type                           Public                  Internal
+===========================    ====================    ======================================================================
+Modules                        lower_with_under        _lower_with_under
+Packages                       lower_with_under             
+Classes                        CapWords                _CapWords
+Exceptions                     CapWords                         
+Functions                      lower_with_under()      _lower_with_under()
+Global/Class Constants         CAPS_WITH_UNDER         _CAPS_WITH_UNDER
+Global/Class Variables         lower_with_under        _lower_with_under
+Instance Variables             lower_with_under        _lower_with_under (protected) or __lower_with_under (private)
+Method Names                   lower_with_under()      _lower_with_under() (protected) or __lower_with_under() (private)
+Function/Method Parameters     lower_with_under                     
+Local Variables                lower_with_under                           
+===========================    ====================    ======================================================================
 
 
 Main
 --------------------
 
 .. tip::
-    即使是一个打算被用作脚本的文件也应该是可导入的, 并且简单的导入不应该导致这个脚本的主功能(main functionality)被执行, 这是一种副作用. 主功能应该放在一个main()函数中.   
+    即使是一个打算被用作脚本的文件也应该是可导入的, 并且简单的导入不应该导致这个脚本的主功能(main functionality)被执行, 这是一种副作用. 主功能应该放在一个main()函数中. 
 
-定义:
+在Python中, pychecker, pydoc以及单元测试要求模块必须是可导入的. 你的代码应该总是在执行主程序前检查 ``if __name__ == '__main__'`` , 这样当模块被导入时主程序就不会被执行. 
+.. code-block:: python
 
-优点:
+    def main():
+          ...
 
-缺点:
+    if __name__ == '__main__':
+        main()
 
-结论:
-        
+所有的顶级代码在模块导入时都会被执行. 要小心不要去调用函数, 创建对象, 或者执行那些不应该在使用pychecker或pydoc时执行的操作.
