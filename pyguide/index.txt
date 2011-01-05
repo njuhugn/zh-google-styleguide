@@ -29,7 +29,6 @@ Google Python 风格指南 - 中文版
 
 .. toctree::
 
-        background
         python_language_rules
         python_style_rules
         parting_words
