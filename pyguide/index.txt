@@ -15,9 +15,9 @@ Google Python 风格指南 - 中文版
         Mike Shields
         
 :翻译:
-    .. line-block::
-    
-        郭桥 <guoqiao@gmail.com>
+    郭桥
+
+    .. image:: guoqiao.gif
         
 :项目主页:
     - `Google Style Guide <http://google-styleguide.googlecode.com>`_

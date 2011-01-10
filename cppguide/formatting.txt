@@ -223,7 +223,7 @@
         
         if (condition) {  // Good - proper space after IF and before {.
         
-如果能增强可读性, 简短的条件语句允许写在同一行. 只有当语句简单并且没有使用 ``else`` 子句时使用:
+如果能增强可读性, 简短的条件语句允许写在同一行. 仅当语句简单且没有使用 ``else`` 子句时使用:
     .. code-block:: c++
         
         if (x == kFoo) return new Foo();
@@ -359,29 +359,41 @@
 .. tip::
     如果一个布尔表达式超过 :ref:`标准行宽 <line-length>`, 断行方式要统一一下.
     
-下例中, 逻辑与 (``&&``) 操作符总位于行尾:
+下例中, 逻辑与 (``&&``) 运算符总位于行尾:
     .. code-block:: c++
         
         if (this_one_thing > this_other_thing &&
             a_third_thing == a_fourth_thing &&
-            yet_another & last_one) {
+            yet_another && last_one) {
           ...
         }
         
-注意, 上例的逻辑与 (``&&``) 操作符均位于行尾. 可以考虑额外插入圆括号, 合理使用的话对增强可读性是很有帮助的.
+注意, 上例代码换行时，所有逻辑与 (``&&``) 运算符均位于行尾。虽然把运算符放在每行的起始处也是允许的，但在 Google 代码中更常见的做法是放在行尾。可以适当插入若干圆括号，合理使用的话对增强代码可读性很有帮助。
 
 
 8.10. 函数返回值
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
-    ``return`` 表达式中不要用圆括号包围.
-    
-函数返回时不要使用圆括号:
+    不要画蛇添足地对 ``return`` 表达式使用圆括号。
+  
+仅当你觉得在 ``x = expr;`` 也很合理时，才在 ``return expr;`` 中使用圆括号。
+
     .. code-block:: c++
         
-        return x;  // not return(x);
-        
+        return result;                  // 好：简单表达式不需要圆括号
+        return (some_long_condition &&  // 好：圆括号提高复杂的表达式
+                another_condition);     //    的可读性
+
+
+    .. warning::
+
+        .. code-block:: c++
+            
+            return (value);                 // 坏：谁会写这样的表达式 var = (value); ?
+            return(result);                 // 坏：return 不是函数！
+
+
 8.11. 变量及数组初始化
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -469,7 +481,7 @@
     
     - 关于声明顺序的规则请参考 :ref:`声明顺序 <declaration-order>` 一节.
     
-8.14. 初始化列表
+8.14. 构造函数初始化列表
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. tip::
@@ -507,7 +519,7 @@
         
         namespace {
 
-        void foo() {  // Correct.  No extra indentation within namespace.
+        void foo() {  // 正确：名字空间内无需额外缩进。
           ...
         }
 
@@ -519,12 +531,20 @@
         
             namespace {
 
-              // Wrong.  Indented when it should not be.
+              // 错误：不应该缩进。
               void foo() {
                 ...
               }
 
             }  // namespace
+
+当声明嵌套的名字空间时，每个名字空间独占一行。
+
+    .. code-block:: c++
+
+        namespace foo {
+        namespace bar {
+        
 
         
 8.16. 水平留白
@@ -596,7 +616,7 @@
         vector<char *> x;           // Spaces between type and pointer are
                                     // okay, but be consistent.
         set<list<string> > x;       // C++ requires a space in > >.
-        set< list<string> > x;      // You may optionally make use
+        set< list<string> > x;      // You may optionally use
                                     // symmetric spacing in < <.
 
 8.17. 垂直留白
@@ -609,39 +629,10 @@
 
 基本原则是: 同一屏可以显示的代码越多, 越容易理解程序的控制流. 当然, 过于密集的代码块和过于疏松的代码块同样难看, 取决于你的判断. 但通常是垂直留白越少越好.
 
-.. warning:: 函数首尾不要有空行
-    
-    .. code-block:: c++
-        
-        void Function() {
-        
-          // Unnecessary blank lines before and after
-        
-        }
+以下经验之谈可能可以帮助你判断是否有必要空行:
 
-.. warning:: 代码块首尾不要有空行
-    
-    .. code-block:: c++
-    
-        while (condition) {
-          // Unnecessary blank line after
-        
-        }
-        if (condition) {
-        
-          // Unnecessary blank line before
-        }
-        
-``if-else`` 块之间空一行是可以接受的:
-    .. code-block:: c++
-        
-        if (condition) {
-          // Some lines of code too small to move to another function,
-          // followed by a blank line.
-
-        } else {
-          // Another block of code
-        }
+* 函数体首尾的空行对可读性毫无帮助。
+* ``if-else`` 连锁代码段间的空行对可读性可能有所帮助。
 
 译者 (YuleFox) 笔记
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
