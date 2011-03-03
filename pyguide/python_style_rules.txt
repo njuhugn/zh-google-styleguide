@@ -144,7 +144,7 @@ Python会将圆括号, 中括号和花括号中的行隐式的连接起来, 你�
     
 .. code-block:: python
          
-    Yes: spam (1)
+    no: spam (1)
     
 .. code-block:: python  
 
