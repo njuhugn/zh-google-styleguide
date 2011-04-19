@@ -59,9 +59,9 @@ pychecker
 结论:
     使用 ``import x`` 来导入包和模块. 
     
-    使用 ``form x import y`` , 其中x是包前缀, y是不带前缀的模块名.
+    使用 ``from x import y`` , 其中x是包前缀, y是不带前缀的模块名.
     
-    使用 ``form x import y as z``, 如果两个要导入的模块都叫做z或者y太长了.
+    使用 ``from x import y as z``, 如果两个要导入的模块都叫做z或者y太长了.
     
     例如, 模块 ``sound.effects.echo`` 可以用如下方式导入:
     
@@ -151,7 +151,7 @@ pychecker
     #. 有时候用全局变量来缓存值或者作为函数返回值很有用. 
     #. 如果需要, 全局变量应该仅在模块内部可用, 并通过模块级的公共函数来访问. 
     
-嵌套/本地/内部类或函数
+嵌套/局部/内部类或函数
 ------------------------
 
 .. tip::
@@ -585,7 +585,7 @@ True/False的求值
     避免使用这些特性    
     
 定义:
-    Python是一种异常灵活的语言, 它为你提供了很多花哨的特性, 诸如原类(metaclasses), 字节码访问, 任意编译(on-the-fly compilation), 动态继承, 对象父类重定义(object reparenting), 导入黑客(import hacks), 反射, 系统内修改(modification of system internals), 等等.
+    Python是一种异常灵活的语言, 它为你提供了很多花哨的特性, 诸如元类(metaclasses), 字节码访问, 任意编译(on-the-fly compilation), 动态继承, 对象父类重定义(object reparenting), 导入黑客(import hacks), 反射, 系统内修改(modification of system internals), 等等.
     
 优点:
     强大的语言特性, 能让你的代码更紧凑.
