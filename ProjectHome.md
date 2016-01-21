@@ -1,0 +1,1 @@
+Google 风格指南, 及其子项目已迁移到 [GitHub](https://github.com/brantyoung/zh-google-styleguide/)
